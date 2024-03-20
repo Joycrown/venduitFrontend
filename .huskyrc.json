@@ -2,5 +2,4 @@
   "hooks": {
     "pre-commit": "npm run test:noWatch && lint-staged"
   }
-  
 }
