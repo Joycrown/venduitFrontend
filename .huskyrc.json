@@ -1,5 +1,5 @@
 {
   "hooks": {
-    "pre-commit": "echo 'Running pre-commit hook' && npm run test:noWatch && echo 'Test completed' && lint-staged"
+    "pre-commit": " npm run test:noWatch && echo 'Test completed' && lint-staged"
   }
 }

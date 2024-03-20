@@ -11,6 +11,12 @@
     "lint": "eslint --fix",
     "preview": "vite preview"
   },
+  "eslintConfig":{
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
