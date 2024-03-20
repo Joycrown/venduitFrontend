@@ -1,0 +1,9 @@
+/* phone-input.css */
+.phone-input-container .phone {
+    border: none; /* Clear all borders */
+    border-bottom: 1px solid #ccc; /* Add bottom border */
+  }
+  
+  .phone-input-field {
+    width: 30%;
+  }
