@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "test": "jest",
-    "test:noWatch": "npm run test",
-    "lint": "eslint --fix . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test:noWatch": "npm run test -- --watchAll=false",
+    "lint": "eslint --fix",
     "preview": "vite preview"
   },
   "dependencies": {
