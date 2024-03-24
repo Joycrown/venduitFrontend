@@ -8,8 +8,7 @@ const theme = extendTheme({
   },
   colors: {
     brand: {
-      primary:
-        "linear-gradient(90deg, rgba(97, 101, 215, 0.31) 0%, rgba(69, 161, 245, 0.53) 100%);",
+      primary: "#5D2FE0",
       secondary: "#263238",
       gray: "#D9D9D9",
       success: "#05C761",
