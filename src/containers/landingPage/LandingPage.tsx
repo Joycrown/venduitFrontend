@@ -1,9 +1,10 @@
 import React from "react";
-import { Box, Text, Container } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 import LandingHeader from "../../components/LandingComponents/landingHeader";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import ForgetPassword from "../ForgetPassword/ForgetPassword";
+import ResetPassword from "../ResetPassword/ResetPassword";
 
 const LandingPage = () => {
   return (
@@ -16,7 +17,8 @@ const LandingPage = () => {
       </Text> */}
       {/* <SignupPage/> */}
       {/* <LoginPage/> */}
-      <ForgetPassword/>
+      {/* <ForgetPassword/> */}
+      <ResetPassword/>
     </Container>
   );
 };

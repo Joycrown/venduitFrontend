@@ -1,41 +1,37 @@
 import { useState } from "react";
 import {
-  Box,
-  Text,
-  Flex,
-  Image,
-  Input,
-  Heading,
-  FormControl,
-  FormLabel,
-  InputGroup,
-  
   InputRightElement,
+  InputGroup,
+  Input,
+  FormLabel,
+  FormControl,
+  Heading,
+  Flex,
+  Box,
   Button,
-  
-  Switch,
+  Image,
+  Text,
   Icon,
 } from "@chakra-ui/react";
-import LineImage from "../../assets/icons/Line 10.png";
-import HeroImage from "../../components/HeroImage/HeroImage";
-import AppleLogin from "../../components/LoginComponents/AppleLogin";
-import GoogleLogin from "../../components/LoginComponents/GoogleLogin";
 import LogoImage from "../../components/LogoImage/LogoImage";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import cancel from "../../assets/icons/cancel_black_24dp 1.svg";
 import check from "../../assets/icons/check_circle_black_24dp 1.svg";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-function SignupPage() {
+export default function ResetPassword() {
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+
+  // toggle passwords visibility
+
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const schema = yup
     .object()
     .shape({
-      email: yup.string().email().required("Email is required"),
       password: yup
         .string()
         .required("Password is required")
@@ -43,23 +39,22 @@ function SignupPage() {
         .matches(/^(?=.*[a-z])/, "Use at least 1 lowercase letter")
         .matches(/^(?=.*[A-Z])/, "Use at least 1 uppercase letter")
         .matches(/^(?=.*\d)/, "Use at least one number"),
-      agree: yup.bool().oneOf([true], "You must agree to continue"),
+      confirmpassword: yup
+        .string()
+        .oneOf([yup.ref("password"), ], "Passwords must match")
+        .required("Passwords must match"),
     })
     .required();
 
   const {
     register,
     handleSubmit,
-    watch,
     reset,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  // Watch password value
-  const pswdValue = watch("password");
-  const pswdlength = pswdValue ? pswdValue.length : 0;
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -69,82 +64,39 @@ function SignupPage() {
     reset();
   };
 
+  // Watch password value
+  const pswdValue = watch("password");
+  const pswdlength = pswdValue ? pswdValue.length : 0;
+  const ConPassValue = watch("confirmpassword");
+
   return (
     <Box>
+      <LogoImage m="-20px" />
+
       <Flex
+        align={["", "", "center"]}
+        h="80vh"
         justify="center"
-        align={"center"}
-        direction={["column", "column", "row"]}
+        direction="column"
       >
-        <HeroImage />
-
-        {/* SignUp Form */}
-        <Box w={["100", "100", "50"]} p={["1", "0", "", "0"]} flex={1}>
-          <Box>
-            <LogoImage m="auto" />
-          </Box>
-          <Heading
-            textAlign="center"
-            px={[3, 3, 4]}
-            my={["0", "10", "0", "0px"]}
-            fontSize={["md", "2xl", "2xl", "1xl"]}
-          >
-            Discover credible vendors.
-            <br />
-            Free on Venduit.
-          </Heading>
-          <Text
-            textAlign="center"
-            px={35}
-            py={2}
-            fontSize={["2xl", "lg", "xl", "2xl"]}
-            fontWeight="bold"
-            display={["none", "none", "block"]}
-          >
-            Sign up to get started.
-          </Text>
-
-          {/* Third Party authentication */}
-          <GoogleLogin />
-          <AppleLogin />
-
-          {/* Line */}
-          <Flex
-            align="center"
-            justify="center"
-            w="100%"
-            py={0}
-            fontSize={["2xl", "lg", "sm"]}
-          >
-            <Box>
-              <Image src={LineImage} alt="line" />
-            </Box>
-            <Text p={1}>OR</Text>
-            <Box>
-              <Image src={LineImage} alt="line" />
-            </Box>
-          </Flex>
-
-          {/* Sign Up form */}
+        {/* Sign Up form */}
+        <Box
+          bg={["", "", "#EEEDF0"]}
+          maxW="600px"
+          w="100%"
+          mx={["", "", "auto"]}
+          p={["", "", "10"]}
+          borderRadius={40}
+        >
           <form onSubmit={handleSubmit(onSubmit)}>
+            <Heading as="h3" my={["5","","","10"]}>
+              Reset your password
+            </Heading>
+            <Text my={["","","","10"]}>Create a new password for your Venduit account.</Text>
 
-            {/* Enter Email */}
+            {/* Enter Password */}
             <FormControl px={["", "", "", "0"]} my={[2, 2, 2]}>
-              <FormLabel>Email</FormLabel>
-              <Input
-                placeholder="me@mail.com"
-                size="lg"
-                {...register("email")}
-              />
-
-              {errors.email && (
-                <Text color="red.500">{errors.email?.message}</Text>
-              )}
-            </FormControl>
-
-                {/* Enter Password */}
-            <FormControl px={["", "", "", "0"]} my={[2, 2, 2]}>
-              <FormLabel>Password</FormLabel>
+              <FormLabel fontWeight="bold">New password</FormLabel>
               <InputGroup size="md">
                 <Input
                   type={showPassword ? "text" : "password"}
@@ -201,44 +153,58 @@ function SignupPage() {
               </Text>
             </Box>
 
-            {/* Agreement Checkbox */}
-            <FormControl
-              px={["", "", "", "0"]}
-              mt={5}
-              display="flex"
-              alignItems="center"
-            >
-              <Switch id="agreement" p={2} {...register("agree")} />
-              <FormLabel htmlFor="agreement" fontSize={["", "", "xs", "md"]}>
-                I agree to Venduit's Terms of use and Privacy policy. I also
-                consent to receive communications from Venduit.
-              </FormLabel>
+            {/* Confirm Password */}
+            <FormControl px={["", "", "", "0"]} my={[2, 8, 2]}>
+              <FormLabel fontWeight="bold">Comfirm new password</FormLabel>
+              <InputGroup size="md">
+                <Input
+                  type={showConfirmPassword ? "text" : "password"}
+                  pr="4.5rem"
+                  placeholder="Enter password"
+                  size="lg"
+                  fontSize={["xs", "", ""]}
+                  {...register("confirmpassword")}
+                />
+                <InputRightElement width="4.5rem" display={"flex"} h="100%">
+                  <Box
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  >
+                    <Icon as={showConfirmPassword ? FaEye : FaEyeSlash} />
+                  </Box>
+                </InputRightElement>
+              </InputGroup>
+              {errors.confirmpassword && (
+                <Text color="red.500">{errors.confirmpassword?.message}</Text>
+              )}
             </FormControl>
-            {errors.email && (
-              <Text color="red.500">{errors.agree?.message}</Text>
-            )}
+
+            {/* Confirm Password Error Message */}
+            <Text fontSize="xs" my={2} display={"flex"}>
+              Must match with the password above
+              {pswdValue !== "" && pswdValue !== ConPassValue ? (
+                <Image src={cancel} />
+              ) : (
+                <Image src={check} />
+              )}
+            </Text>
+
             <Button
               type="submit"
               px={["", "", "35"]}
-              mt={5}
+              mt={["5","8","10","10","10"]}
               w="100%"
               size="lg"
               bg="brand.primary"
               borderRadius={50}
               color="white"
               isLoading={submitting}
-              loadingText="Submitting..."
+              loadingText="Resetting..."
             >
-              Sign up Free{" "}
+              Reset my password{" "}
             </Button>
-            <Text m={3} textAlign="center">
-              Already have an account? Log in
-            </Text>
           </form>
         </Box>
       </Flex>
     </Box>
   );
 }
-
-export default SignupPage;
