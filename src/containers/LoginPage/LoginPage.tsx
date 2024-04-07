@@ -1,4 +1,5 @@
-import { useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useState } from "react";
 import {
   Box,
   Text,
@@ -13,6 +14,8 @@ import {
   Button,
   Switch,
   Icon,
+  VStack,
+  useToast,
 } from "@chakra-ui/react";
 import LineImage from "../../assets/icons/Line 10.png";
 import HeroImage from "../../components/HeroImage/HeroImage";
@@ -22,10 +25,16 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import LandingHeader from "../../components/LandingComponents/landingHeader";
+import { useLoginMutation } from "../../services/api";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../services/authSlice";
+import { useNavigate } from "react-router-dom";
+import { RoutePaths } from "../../utils/routes/routePaths";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
+ 
 
   const schema = yup
     .object()
@@ -47,29 +56,70 @@ export default function LoginPage() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  const onSubmit = (data: any) => {
-    console.log(data);
-    //sent data
-
-    setSubmitting(true);
+  const dispatch = useDispatch();
+  const toast = useToast()
+  const navigate = useNavigate()
+  const [login, { isLoading, isError, error:apiError, isSuccess, data:receivedData}] = useLoginMutation();
+  
+  const onSubmit = async (data: any) => {
+    try {
+      await login(data); // Destructure 'data' from the response
+    } catch (error) {
+      // console.error('Login failed', error);
+    }
     reset();
   };
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(loginSuccess(receivedData));
+      toast({
+        title: "Login Successful",
+        position: "top-right",
+        status: "success",
+        isClosable: true,
+      });
+      navigate(RoutePaths.DASHBOARD)
+      
+    } 
+  }, [isSuccess, isError,dispatch,navigate,toast,receivedData]);
+
+  useEffect(() => {
+    try {
+      if (isError) {
+        toast({
+          title:  (apiError as any)?.data.detail,
+          position: "top-right",
+          status: "error",
+          isClosable: true,
+        });
+      }
+    } catch (e) {
+      toast({
+        title: "Connection Error",
+        position: "top-right",
+        status: "error",
+        isClosable: true,
+      });
+    }
+  }, [isError, apiError, toast]);
 
   return (
     <Box>
+      <LandingHeader/>
       <Flex
-        justify="center"
-        align={"center"}
-        direction={["column", "column", "row"]}
+       justifyContent="center"
+       alignContent="center"
+       direction={{base:"column",md:"row",lg:"row"}}
+       px={{base:"5%",md:"unset"}}
       >
         <HeroImage />
 
         {/* Login Form */}
-        <Box w={["100", "100", "50"]} p={["1", "0", "", "0"]} flex={1}>
+        <Box w={{base:"",md:"",lg:"50%"}} p={["1", "0", "", "0"]} flex={1}>
           <Heading
             textAlign="center"
             px={[3, 3, 4]}
+            py={5}
             fontSize={["md", "lg", "2xl", "1xl"]}
           >
             Discover credible vendors.
@@ -78,8 +128,10 @@ export default function LoginPage() {
           </Heading>
 
           {/* Third Party authentication */}
-          <GoogleLogin />
-          <AppleLogin />
+          <VStack gap={4} py={2}>
+            <GoogleLogin />
+            <AppleLogin />
+          </VStack>
 
           {/* Line */}
           <Flex
@@ -103,27 +155,30 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit(onSubmit)}>
             {/* Enter Email */}
             <FormControl px={["", "", "", "0"]} my={[2, 2, 2]}>
-              <FormLabel>Email</FormLabel>
+              <FormLabel fontSize={{base:"14px",md:"16px",lg:""}}>Email</FormLabel>
               <Input
                 placeholder="me@mail.com"
                 size="lg"
+                fontSize={{base:"14px",md:"16px",lg:""}}
+                width={{base:"100%",md:"95%",lg:"95%"}}
                 {...register("email")}
               />
               {errors.email && (
-                <Text color="red.500">{errors.email?.message}</Text>
+                <Text color="red.500" pt={2} fontSize={{base:"12px",md:"14px",lg:"16px"}}>{errors.email?.message}</Text>
               )}
             </FormControl>
 
             {/* Enter Password */}
             <FormControl px={["", "", "", "0"]} my={[2, 2, 2]}>
-              <FormLabel>Password</FormLabel>
+              <FormLabel fontSize={{base:"14px",md:"16px",lg:""}}>Password</FormLabel>
               <InputGroup size="md">
                 <Input
                 type={showPassword ? "text" : "password"}
                   pr="4.5rem"
                   placeholder="Enter password"
                   size="lg"
-                  fontSize={["xs", "", ""]}
+                  width={{base:"100%",md:"95%",lg:"95%"}}
+                  fontSize={{base:"14px",md:"16px",lg:""}}
                   {...register("password")}
                 />
                 <InputRightElement width="4.5rem">
@@ -133,7 +188,7 @@ export default function LoginPage() {
                 </InputRightElement>
               </InputGroup>
               {errors.password && (
-                <Text color="red.500">{errors.password?.message}</Text>
+                <Text color="red.500" pt={2} fontSize={{base:"12px",md:"14px",lg:"16px"}}>{errors.password?.message}</Text>
               )}
             </FormControl>
 
@@ -145,7 +200,7 @@ export default function LoginPage() {
               alignItems="center"
             >
               <Switch id="remeber" p={2} />
-              <FormLabel htmlFor="remeber" fontSize={["", "", "xs", "md"]}>
+              <FormLabel htmlFor="remeber" fontSize={{base:"14px",md:"16px",lg:""}}>
                 Remember me on this device
               </FormLabel>
             </FormControl>
@@ -153,15 +208,14 @@ export default function LoginPage() {
             type="submit"
               px={["", "", "35"]}
               mt={5}
-              w="100%"
+              width={{base:"100%",md:"95%",lg:"95%"}}
               size="lg"
               bg="brand.primary"
               borderRadius={50}
               color="white"
-              isLoading={submitting}
-              loadingText="Loging in..."
+             
             >
-              Log in{" "}
+              {isLoading ? "Signin in...":" Sign In"}
             </Button>
 
             {/* Forget Password */}
@@ -170,7 +224,7 @@ export default function LoginPage() {
               type="submit"
               px={["", "", "35"]}
               mt={5}
-              w="100%"
+              width={{base:"100%",md:"95%",lg:"95%"}}
               size="lg"
               border="1px"
               borderRadius={50}

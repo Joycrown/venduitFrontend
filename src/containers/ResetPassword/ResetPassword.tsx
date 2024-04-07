@@ -20,6 +20,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import cancel from "../../assets/icons/cancel_black_24dp 1.svg";
 import check from "../../assets/icons/check_circle_black_24dp 1.svg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import LandingHeader from "../../components/LandingComponents/landingHeader";
 
 export default function ResetPassword() {
   const [showPassword, setShowPassword] = useState(false);
@@ -71,8 +72,8 @@ export default function ResetPassword() {
 
   return (
     <Box>
+      <LandingHeader/>
       <LogoImage m="-20px" />
-
       <Flex
         align={["", "", "center"]}
         h="80vh"
