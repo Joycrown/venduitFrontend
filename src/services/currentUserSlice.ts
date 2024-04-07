@@ -19,7 +19,6 @@ interface UserState {
   loading: boolean;
   error: string | null;
 }
-
 const initialState: UserState = {
   user: null,
   loading: false,
