@@ -3,6 +3,10 @@
 
 export const RoutePaths = Object.freeze({
   BASE_URL: "/",
-  DASHBOARD:"/dashboard/"
+  SIGNUP: "/signup",
+  LOGIN: "/login",
+  FORGOT_PASSWORD: "/forgot_password",
+  SET_PASSWORD: "/set_password",
+  DASHBOARD:"/dashboard"
   
 });

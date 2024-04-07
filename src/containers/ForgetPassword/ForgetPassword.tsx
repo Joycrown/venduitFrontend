@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import {
   InputGroup,
@@ -14,6 +15,7 @@ import LogoImage from "../../components/LogoImage/LogoImage";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import LandingHeader from "../../components/LandingComponents/landingHeader";
 
 export default function ForgetPassword() {
   const [submitting, setSubmitting] = useState(false);
@@ -44,6 +46,7 @@ export default function ForgetPassword() {
 
   return (
     <Box>
+      <LandingHeader/>
       <LogoImage m="-20px" />
 
       <Flex
