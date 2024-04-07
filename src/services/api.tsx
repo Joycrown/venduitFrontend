@@ -7,7 +7,7 @@ export const VenduitApi = createApi({
   reducerPath: 'VenduitApi',
   baseQuery: fetchBaseQuery({ 
     baseUrl:
-    "http://localhost:8000/",
+    "https://venduit-yxgrv9rp.b4a.run/",
     prepareHeaders: (headers) => {
       // Get the token from localStorage
       const token = localStorage.getItem('access_token');
@@ -64,19 +64,8 @@ export const VenduitApi = createApi({
     currentUser: builder.query<UserOut, void>({
       query: () => "/current_user"
     }),
-    createOrder: builder.mutation<OrderOut, CreateOrder>({
-      query:(body:CreateOrder)=>({
-        url:'/order',
-        method: "POST",
-        body
-      })
-    }),
-    getOrder: builder.query<OrderOut, string>({
-      query: (id) => `/order/${id}`
-    }),
-    getOrders: builder.query<[OrderOut], void>({
-      query: () => '/orders'
-    }),
+    
+    
     
   }),
   
@@ -87,10 +76,7 @@ export const { useUserSignupMutation,
   useForgotpasswordMutation,
   useSetpasswordMutation,
   useRefreshTokenMutation,
-  useCurrentUserQuery,
-  useCreateOrderMutation,
-  useGetOrderQuery,
-  useGetOrdersQuery,
+  useCurrentUserQuery
 
 
 
