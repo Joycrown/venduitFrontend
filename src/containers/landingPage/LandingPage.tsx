@@ -1,7 +1,5 @@
-
 import { Container } from "@chakra-ui/react";
 import LandingHeader from "../../components/LandingComponents/landingHeader";
-
 import UnderConstruction from "../extras/UnderConstruction";
 
 const LandingPage = () => {
