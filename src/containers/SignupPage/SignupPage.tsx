@@ -58,6 +58,8 @@ function SignupPage() {
     })
     .required();
 
+
+    
   const {
     register,
     handleSubmit,
