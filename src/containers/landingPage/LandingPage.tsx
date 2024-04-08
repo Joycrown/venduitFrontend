@@ -1,13 +1,14 @@
-import { Box, Text } from '@chakra-ui/react'
-import LandingHeader from '../../components/LandingComponents/landingHeader'
+import { Container } from "@chakra-ui/react";
+import LandingHeader from "../../components/LandingComponents/landingHeader";
+import UnderConstruction from "../extras/UnderConstruction";
 
 const LandingPage = () => {
   return (
-    <Box>
-      <LandingHeader/>
-      <Text> This is HomePage container, containing all other components for the  landing page</Text>
-    </Box>
-  )
-}
+    <Container as="section" maxW="8xl" p={5} minH="100vh">
+      <LandingHeader />
+      <UnderConstruction/>
+    </Container>
+  );
+};
 
-export default LandingPage
+export default LandingPage;
