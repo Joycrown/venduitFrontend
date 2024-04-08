@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-refresh/only-export-components */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {UserSignUp,UserOut, ResponseData, Login, ForgotPassword, SetPassword, RefreshToken, CreateOrder, OrderOut} from  './index'
+import {UserSignUp,UserOut, ResponseData, Login, ForgotPassword, SetPassword, RefreshToken} from  './index'
 
 export const VenduitApi = createApi({
   reducerPath: 'VenduitApi',
