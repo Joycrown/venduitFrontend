@@ -215,7 +215,7 @@ export default function LoginPage() {
               color="white"
              
             >
-              {isLoading ? "Signin in...":" Sign In"}
+              {isLoading ? "Signing in...":" Sign In"}
             </Button>
 
             {/* Forget Password */}
