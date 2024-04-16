@@ -7,6 +7,11 @@ export const RoutePaths = Object.freeze({
   LOGIN: "/login",
   FORGOT_PASSWORD: "/forgot_password",
   SET_PASSWORD: "/set_password",
-  DASHBOARD:"/dashboard"
+  DASHBOARD:"/dashboard",
+  MAKE_PAYMENT: "make-payment",
+  VENDOR_DETAILS: "vendor_details",
+  PRODUCT_DETAILS: "product_details",
+  PAYMENT_SUCCESSFUL: "payment_successful",
+  DISPUTE_NOTIFICATION: "dispute_notification",
   
 });
