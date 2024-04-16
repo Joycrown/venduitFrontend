@@ -7,7 +7,7 @@ export const VenduitApi = createApi({
   reducerPath: 'VenduitApi',
   baseQuery: fetchBaseQuery({ 
     baseUrl:
-    "https://venduit-yxgrv9rp.b4a.run/",
+    "http://127.0.0.1:8000",
     prepareHeaders: (headers) => {
       // Get the token from localStorage
       const token = localStorage.getItem('access_token');
