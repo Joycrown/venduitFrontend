@@ -64,6 +64,9 @@ export const VenduitApi = createApi({
     currentUser: builder.query<UserOut, void>({
       query: () => "/current_user"
     }),
+    getVendor: builder.query<UserOut, string>({
+      query: (id) => `/vendor/${id}`
+    }),
     
     
     
@@ -76,7 +79,8 @@ export const { useUserSignupMutation,
   useForgotpasswordMutation,
   useSetpasswordMutation,
   useRefreshTokenMutation,
-  useCurrentUserQuery
+  useCurrentUserQuery,
+  useGetVendorQuery
 
 
 

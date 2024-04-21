@@ -14,7 +14,7 @@ import { BsDot } from 'react-icons/bs';
 import VendorCard from '../../components/utils/VendorCard';
 import clothe from "../../assets/images/vendor clothe image.jpg"
 import shoe from "../../assets/images/vendor shoe image.jpg"
-import MakePayment from '../../components/modals/dashboardModals/MakePayment';
+import MakePayment from '../../components/modals/dashboardModals/PaymentModals';
 const DashboardPage = () => {
 const ongoingTransaction =[
   {
@@ -100,12 +100,12 @@ const VendorLists =[
         <Stack pt={10} direction={{base:"column",md:"column",lg:"row"}} gap={{base:"10",md:"20",lg:"5"}} justifyContent={{base:"",md:"center",lg:"space-evenly"}}>
           <Box display={{base:"flex",md:"flex", lg:"unset"}}  justifyContent={{base:"center",md:"center",lg:"unset"}}>
             <Box  >
-              <HStack pos="relative" spacing={14} justifyContent={{base:"",md:"space-between",lg:"space-between"}}>
+              <HStack pos="relative" spacing={14} justifyContent={{base:"space-between",md:"space-between",lg:"space-between"}}>
                 <HStack gap={{base:"4",md:"5",lg:"4"}}>
                   <Avatar name={user?.full_name}/>
                   <Text fontSize={{base:"",md:"20px",lg:"18px"}} fontWeight="semibold"> Hi {user?.full_name},</Text>
                 </HStack>
-                <Box pos="absolute" top="-5px" right={{base:"7",md:"-3",lg:"-12px"}}> 
+                <Box pos="absolute" top="-5px" right={{base:"-3",md:"-3",lg:"-12px"}}> 
                   <BsDot size="2.5rem" style={{color:"#FF0000"}}/>
                 </Box>
                 <IoNotifications size="1.5rem"/>

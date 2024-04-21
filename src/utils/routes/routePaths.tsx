@@ -12,10 +12,10 @@ export const RoutePaths = Object.freeze({
   TRANSACTION:"/transaction",
   PROMOTION:"/promotion",
   ACCOUNT:"/account",
-  MAKE_PAYMENT: "make-payment",
-  VENDOR_DETAILS: "vendor_details",
-  PRODUCT_DETAILS: "product_details",
-  PAYMENT_SUCCESSFUL: "payment_successful",
-  DISPUTE_NOTIFICATION: "dispute_notification",
+  MAKE_PAYMENT: "/make-payment",
+  VENDOR_DETAILS: "/vendor_details",
+  PRODUCT_DETAILS: "/product_details",
+  PAYMENT_SUCCESSFUL: "/payment_successful",
+  DISPUTE_NOTIFICATION: "/dispute_notification",
   
 });
