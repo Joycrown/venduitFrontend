@@ -13,5 +13,10 @@ export const RoutePaths = Object.freeze({
   PRODUCT_DETAILS: "product_details",
   PAYMENT_SUCCESSFUL: "payment_successful",
   DISPUTE_NOTIFICATION: "dispute_notification",
-  
+  NON_VENDOR: "non_vendor",
+  RAISE_DISPUTE: "raise_dispute",
+  VENDOR_EXPLORE: "vendor_explore",
+  VENDOR_REPUTATION: "vendor_reputation",
+  VENDOR_RESULTS: "vendor_results",
+  CATEGORY_LIST: "category_list",
 });
