@@ -10,6 +10,12 @@ import VendorDetail from "../../components/Modal/VendorDetail";
 import ProductDetail from "../../components/Modal/ProductDetail";
 import PaymentSuccessful from "../../components/Modal/PaymetSuccessful";
 import DisputeNotification from "../../components/Modal/DisputeNotification";
+import NonVendor from "../../components/Modal/NonVendor";
+import RaiseDispute from "../../components/Modal/RaiseDispute";
+import VendorExplore from "../../components/VendorExplore/VendorExplore";
+import VendorReputaion from "../../components/VendorExplore/VendorReputation";
+import VendorResult from "../../components/VendorExplore/VendorResult";
+import CategoryList from "../../components/VendorExplore/CategoryList";
 
 export const publicRoutes = [
   {
@@ -53,7 +59,30 @@ export const publicRoutes = [
     route: RoutePaths.DISPUTE_NOTIFICATION,
     page: <DisputeNotification/>,
   },
-  
+  {
+    route: RoutePaths.NON_VENDOR,
+    page: <NonVendor/>,
+  },
+  {
+    route: RoutePaths.RAISE_DISPUTE,
+    page: <RaiseDispute/>,
+  },
+  {
+    route: RoutePaths.VENDOR_EXPLORE,
+    page: <VendorExplore/>,
+  },
+  {
+    route: RoutePaths.VENDOR_REPUTATION,
+    page: <VendorReputaion/>,
+  },
+  {
+    route: RoutePaths.VENDOR_RESULTS,
+    page: <VendorResult/>,
+  },
+  {
+    route: RoutePaths.CATEGORY_LIST,
+    page: <CategoryList/>,
+  },
   
 
 ];
