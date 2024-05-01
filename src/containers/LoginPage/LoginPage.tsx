@@ -43,7 +43,7 @@ export default function LoginPage() {
       password: yup
         .string()
         .required("Password is required")
-        .min(8, "Use at least 8 characters"),
+        
         // remeber: yup.bool().oneOf([true], "You must agree to continue"),
     })
     .required();
