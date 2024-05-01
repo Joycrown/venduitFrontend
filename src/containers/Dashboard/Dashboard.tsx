@@ -14,7 +14,16 @@ import { BsDot } from 'react-icons/bs';
 import VendorCard from '../../components/utils/VendorCard';
 import clothe from "../../assets/images/vendor clothe image.jpg"
 import shoe from "../../assets/images/vendor shoe image.jpg"
-import MakePayment from '../../components/modals/dashboardModals/PaymentModals';
+import MakePayment from '../../components/modals/dashboardModals/PaymentProcess';
+
+
+
+
+
+
+
+
+
 const DashboardPage = () => {
 const ongoingTransaction =[
   {
