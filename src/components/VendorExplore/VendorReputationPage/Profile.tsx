@@ -1,5 +1,5 @@
 import { Stack, Flex, Text} from "@chakra-ui/react";
-import img from '../../assets/images/rr.jpg'
+import img from '../../../assets/images/rr.jpg'
 
 
 function Profile() {

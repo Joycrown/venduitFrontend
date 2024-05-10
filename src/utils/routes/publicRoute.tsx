@@ -13,9 +13,12 @@ import DisputeNotification from "../../components/Modal/DisputeNotification";
 import NonVendor from "../../components/Modal/NonVendor";
 import RaiseDispute from "../../components/Modal/RaiseDispute";
 import VendorExplore from "../../components/VendorExplore/VendorExplore";
-import VendorReputaion from "../../components/VendorExplore/VendorReputation";
+import VendorReputaion from "../../components/VendorExplore/VendorReputationPage/VendorReputation";
 import VendorResult from "../../components/VendorExplore/VendorResult";
 import CategoryList from "../../components/VendorExplore/CategoryList";
+import Cart from "../../components/VendorExplore/VendorReputationPage/Cart";
+import SaveItem from "../../components/VendorExplore/VendorReputationPage/SaveItem";
+import Notification from "../../components/VendorExplore/VendorReputationPage/Notification"
 
 export const publicRoutes = [
   {
@@ -83,6 +86,19 @@ export const publicRoutes = [
     route: RoutePaths.CATEGORY_LIST,
     page: <CategoryList/>,
   },
+  {
+    route: RoutePaths.CART,
+    page: <Cart/>,
+  },
+  {
+    route: RoutePaths.SAVE,
+    page: <SaveItem/>,
+  },
+  {
+    route: RoutePaths.NOTIFICATION,
+    page: <Notification/>,
+  },
+  
   
 
 ];

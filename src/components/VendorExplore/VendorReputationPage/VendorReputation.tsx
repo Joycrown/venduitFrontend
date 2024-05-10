@@ -1,17 +1,17 @@
 import { Flex, Stack } from "@chakra-ui/react";
-import VendorNav from "./VendorNav";
 import Profile from "./Profile";
-import Buttons from "./Buttons";
+import Buttons from "../Buttons";
 import Comments from "./Comments";
-import ImgSlide from "./ImgSlide";
+import ImgSlide from "../ImgSlide";
 import PopupMessage from "./PopupMessage";
+import VendorRepNav from "./VendorRepNav";
 
 function VendorReputaion() {
   return (
-    <Stack bg="lightgray">
+    <Stack bg="rgb(245,244,244)">
       <Flex justifyContent='space-between' w="100%">
         <Stack w="400px">
-          <VendorNav />
+          <VendorRepNav />
         </Stack>
 
         <Stack>

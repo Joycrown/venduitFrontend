@@ -5,21 +5,21 @@ import TopCat from "./TopCat";
 import Recommed from "./Recommed";
 
 function VendorExplore() {
-    return ( 
-        <Stack>
-            <Flex>
-            <VendorNav />
-
-            <Stack>
-            <VendorSearch/>
-            <TopCat/>
-            <Recommed/>
-            </Stack>
-            
-            </Flex>
-           
+  return (
+    <Stack bg="rgb(245,244,244)">
+      <Flex gap={3}>
+        <Stack w="400px">
+          <VendorNav />
         </Stack>
-     );
+
+        <Stack>
+          <VendorSearch />
+          <TopCat />
+          <Recommed />
+        </Stack>
+      </Flex>
+    </Stack>
+  );
 }
 
 export default VendorExplore;
