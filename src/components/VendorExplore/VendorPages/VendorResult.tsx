@@ -1,16 +1,16 @@
 import { Stack, Flex, Text, Button } from "@chakra-ui/react";
-import VendorNav from "./VendorNav";
-import VendorSearch from "./VendoreSearch";
-import VendorCard from "./Card";
-import Filter1 from "./Filter1";
+import VendorNav from "../VendorNav";
+import VendorSearch from "../VendoreSearch";
+import VendorCard from "../Card";
+import Filter1 from "../Filter1";
+import Layout from "../../layout/layout"
 
 function VendorResult() {
   return (
+    <Layout>
     <Stack bg="rgb(245,244,244)">
       <Flex>
-        <Stack w="fit-content">
-          <VendorNav />
-        </Stack>
+        
         <Stack w="100%" mr={20} ml={10}>
           <VendorSearch />
 
@@ -47,6 +47,7 @@ function VendorResult() {
         </Stack>
       </Flex>
     </Stack>
+    </Layout>
   );
 }
 

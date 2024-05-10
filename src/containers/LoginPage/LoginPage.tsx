@@ -30,7 +30,7 @@ import { useLoginMutation } from "../../services/api";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../services/authSlice";
 import { useNavigate } from "react-router-dom";
-import { RoutePaths } from "../../utils/routes/routePaths";
+import { RoutePaths } from "../../components/VendorExplore/routePaths";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -43,7 +43,7 @@ export default function LoginPage() {
       password: yup
         .string()
         .required("Password is required")
-        .min(8, "Use at least 8 characters"),
+        
         // remeber: yup.bool().oneOf([true], "You must agree to continue"),
     })
     .required();
