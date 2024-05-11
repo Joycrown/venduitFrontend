@@ -13,7 +13,7 @@ import { MdDashboard, MdOutlineInsertChartOutlined } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../../services/currentUserSlice";
 import { logoutSuccess } from "../../services/authSlice";
-import { RoutePaths } from "../../utils/routes/routePaths";
+import { RoutePaths } from "../VendorExplore/routePaths";
 import LandingHeader from "../LandingComponents/landingHeader";
 
 export default function SideBar() {

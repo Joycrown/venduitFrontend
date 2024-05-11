@@ -1,5 +1,5 @@
 import DashboardPage from "../../containers/Dashboard/Dashboard";
-import { RoutePaths } from "./routePaths";
+import { RoutePaths } from "../../components/VendorExplore/routePaths";
 
 
 

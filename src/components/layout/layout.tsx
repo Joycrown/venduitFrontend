@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import { useCurrentUserQuery, useRefreshTokenMutation } from "../../services/api";
 import { loginSuccess, logoutSuccess } from "../../services/authSlice";
 import { removeUser, setUser } from "../../services/currentUserSlice";
-import { RoutePaths } from "../../utils/routes/routePaths";
+import { RoutePaths } from "../VendorExplore/routePaths";
 import { IoLogOutSharp } from "react-icons/io5";
 
 
@@ -164,12 +164,12 @@ const Layout = ({ children }: LayoutProps) => {
                   </HStack>
                 </Box>
               </Link>
-              <Link href="/explore" style={{ textDecoration: 'none' }}>
+              <Link href="/vendor_explore" style={{ textDecoration: 'none' }}>
                 <Box mt={4} 
                 p="12px"
                 pl="10%"
                 >
-                  <HStack color={router.pathname === RoutePaths.EXPLORE ? "#5D2FE0": "#A2A1A5"}>
+                  <HStack color={router.pathname === RoutePaths.VENDOR_EXPLORE ? "#5D2FE0": "#A2A1A5"}>
                     <FaRegListAlt size="1.3rem"/>
                     <Text fontSize={{base:"",md:"", lg:"18px"}} fontWeight="semibold" > Vendor Explore </Text>
                   </HStack>

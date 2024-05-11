@@ -30,7 +30,7 @@ import { useLoginMutation } from "../../services/api";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../services/authSlice";
 import { useNavigate } from "react-router-dom";
-import { RoutePaths } from "../../utils/routes/routePaths";
+import { RoutePaths } from "../../components/VendorExplore/routePaths";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
