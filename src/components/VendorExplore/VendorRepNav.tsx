@@ -1,4 +1,4 @@
-import { Flex, Stack, Text, Button, Spacer } from "@chakra-ui/react";
+import { Flex, Stack, Text, Spacer } from "@chakra-ui/react";
 import {
   MdDashboard,
   MdOutlineStickyNote2,

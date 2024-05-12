@@ -1,4 +1,4 @@
-import { Stack, Flex, Text, Checkbox} from "@chakra-ui/react";
+import { Stack, Checkbox} from "@chakra-ui/react";
 
 function CategoryList() {
     return ( 
