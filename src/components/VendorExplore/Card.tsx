@@ -11,29 +11,27 @@ import { FaStar } from "react-icons/fa";
 function VendorCard() {
   return (
     <Stack>
-      <Card maxW="sm" w="fit-content">
+      <Card maxW="200px">
         <CardBody>
           <Image
             src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
             alt="Green double couch with wooden legs"
             borderRadius="lg"
-            h="150px"
+            h="100px"
           />
-          <Stack mt="6" spacing="3">
+          <Stack mt="3" spacing="2">
             <Flex justifyContent="space-between" alignItems="center">
-              <Heading size="md">Ramon Shoes</Heading>
-              <Text>Footwears</Text>
+              <Heading size="sm">Ramon Shoes</Heading>
+              <Text fontSize="sm">Footwears</Text>
             </Flex>
 
             <Flex alignItems="center" justifyContent="space-between ">
-                <Text>Lagos, Nigeria</Text>
+              <Text fontSize="sm">Lagos, Nigeria</Text>
 
-              <Flex alignItems="center"  color="blue.600">
-              <Text fontSize="2xl">
-                4.5
-              </Text>
-              <FaStar />
-              </Flex> 
+              <Flex alignItems="center" color="blue.600">
+                <Text fontSize="sm">4.5</Text>
+                <FaStar />
+              </Flex>
             </Flex>
           </Stack>
         </CardBody> 

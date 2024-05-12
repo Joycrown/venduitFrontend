@@ -2,7 +2,7 @@ import {Avatar, Box, HStack, Link, Stack, Text, useDisclosure } from '@chakra-ui
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../services/store';
 import { useCurrentUserQuery } from '../../services/api';
-import { RoutePaths } from '../../utils/routes/routePaths';
+import { RoutePaths } from '../../components/VendorExplore/routePaths';
 import { setUser } from '../../services/currentUserSlice';
 import { useNavigate } from 'react-router-dom';
 import { useEffect} from 'react';

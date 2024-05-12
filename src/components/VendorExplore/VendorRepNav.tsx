@@ -4,15 +4,47 @@ import {
   MdOutlineStickyNote2,
   MdAccountCircle,
 } from "react-icons/md";
-import { IoMdPaperPlane } from "react-icons/io";
+import { IoMdPaperPlane, IoMdHeart } from "react-icons/io";
 import { FaSignOutAlt } from "react-icons/fa";
+import {
+  MdOutlineShoppingBag,
+  MdOutlineNotificationsActive,
+} from "react-icons/md";
+import { Link } from "react-router-dom";
 
-function VendorNav() {
+function VendorRepNav() {
   return (
     <Stack bg="white" p="30px" px="40px" spacing={6} h="100%" w="max-content">
-      <Text fontSize="30px" fontWeight="40px" color="blue" py="30px">
+      <Text
+        fontSize="30px"
+        fontWeight="40px"
+        color="rgb(93,47,224)"
+        paddingTop="30px"
+        textAlign="center"
+      >
         Venduit
       </Text>
+
+      <Flex
+        gap={6}
+        marginBottom="30px"
+        p={3}
+        borderRadius={10}
+        bg="rgb(239,235,252)"
+        color="rgb(93,47,224)"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Link to="/cart">
+          <MdOutlineShoppingBag />
+        </Link>
+        <Link to="/save">
+          <IoMdHeart />
+        </Link>
+        <Link to="/notification">
+          <MdOutlineNotificationsActive />
+        </Link>
+      </Flex>
 
       <Flex gap="1rem">
         <MdDashboard />
@@ -39,12 +71,8 @@ function VendorNav() {
         <Text fontWeight="bold">My Account</Text>
       </Flex>
 
-      <Button colorScheme="blue" width="fit-content">
-        Cyrpto p2p
-      </Button>
-
       <Spacer />
-      
+
       <Flex gap="1rem">
         <FaSignOutAlt />
         <Text fontWeight="bold">Sign Out</Text>
@@ -53,4 +81,4 @@ function VendorNav() {
   );
 }
 
-export default VendorNav;
+export default VendorRepNav;
