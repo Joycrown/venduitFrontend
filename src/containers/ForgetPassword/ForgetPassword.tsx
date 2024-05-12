@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useEffect } from "react";
 import {
   InputGroup,
   Input,
@@ -8,18 +8,20 @@ import {
   Heading,
   Flex,
   Box,
-  Button,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import LogoImage from "../../components/LogoImage/LogoImage";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import LandingHeader from "../../components/LandingComponents/landingHeader";
+import { useForgotpasswordMutation } from "../../services/api";
 
 export default function ForgetPassword() {
-  const [submitting, setSubmitting] = useState(false);
-
+ 
+  const [forgotpassword,{isSuccess,isError,error,isLoading}]  = useForgotpasswordMutation()
+  const toast = useToast()
   const schema = yup
     .object()
     .shape({
@@ -37,12 +39,38 @@ export default function ForgetPassword() {
   });
 
   const onSubmit = (data: any) => {
-    console.log(data);
-    //sent data
+    forgotpassword(data)
 
-    setSubmitting(true);
-    reset();
   };
+  useEffect(()=>{
+    if(isSuccess){
+    toast({
+      title:"Success",
+      description:"Check your Email for further instructions.",
+      status:"success",
+      isClosable: true,
+    })
+    reset()
+    }else if( isError){
+      try {
+        // Attempt to handle server errors
+        toast({
+          title:  (error as any)?.data.detail,
+          position: "top-right",
+          status: "error",
+          isClosable: true,
+        });
+      } catch (error) {
+        // If there's an error while handling server errors, display a connection error toast
+        toast({
+          title: "Server not responding now",
+          position: "top-right",
+          status: "error",
+          isClosable: true,
+        });
+      }
+    }
+  },[isSuccess,error,isError])
 
   return (
     <Box>
@@ -80,7 +108,7 @@ export default function ForgetPassword() {
                   pr="4.5rem"
                   placeholder="me@email.com"
                   size="lg"
-                  fontSize={["xs", "", ""]}
+                  fontSize={["xs", "", "lg"]}
                   border={"1px solid black"}
                   {...register("email")}
                 />
@@ -92,20 +120,20 @@ export default function ForgetPassword() {
 
             {/* Agreement Checkbox */}
 
-            <Button
+            <Box
+              as="button"
               type="submit"
+              p={4}
               px={["", "", "35"]}
               mt={10}
               w="100%"
-              size="lg"
               bg="brand.primary"
               borderRadius={50}
               color="white"
-              isLoading={submitting}
-              loadingText="Sending..."
             >
-              Send me the link{" "}
-            </Button>
+              {isLoading ? "Sending link...":"Send me the link"}
+              
+            </Box>
 
             <Text mt={5} textAlign="center">
               If you still need help, visit out our Help center

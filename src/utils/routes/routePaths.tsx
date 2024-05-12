@@ -7,12 +7,7 @@ export const RoutePaths = Object.freeze({
   LOGIN: "/login",
   FORGOT_PASSWORD: "/forgot_password",
   SET_PASSWORD: "/set_password",
-  DASHBOARD:"/dashboard",
-vendor
-  MAKE_PAYMENT: "/make-payment",
-  VENDOR_DETAILS: "/vendor_details",
-  PRODUCT_DETAILS: "/product_details",
-  PAYMENT_SUCCESSFUL: "/payment_successful",
+  DASHBOARD:"/dashboard", 
   DISPUTE_NOTIFICATION: "/dispute_notification",
   NON_VENDOR: "/non_vendor",
   RAISE_DISPUTE: "/raise_dispute",
@@ -20,14 +15,6 @@ vendor
   VENDOR_REPUTATION: "/vendor_reputation",
   VENDOR_RESULTS: "/vendor_results",
   CATEGORY_LIST: "/category_list",
-  EXPLORE:"/explore",
-  TRANSACTION:"/transaction",
-  PROMOTION:"/promotion",
-  ACCOUNT:"/account",
-  MAKE_PAYMENT: "/make-payment",
-  VENDOR_DETAILS: "/vendor_details",
-  PRODUCT_DETAILS: "/product_details",
-  PAYMENT_SUCCESSFUL: "/payment_successful",
-  DISPUTE_NOTIFICATION: "/dispute_notification",
-  dev
+ 
+  
 });

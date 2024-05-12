@@ -1,4 +1,4 @@
-import DashboardPage from "../../containers/Dashboard/Dashboard";
+import DashboardPage from "../../containers/Dashboard/DashboardPage";
 import { RoutePaths } from "./routePaths";
 
 

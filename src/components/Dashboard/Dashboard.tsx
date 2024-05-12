@@ -6,7 +6,6 @@ import { RoutePaths } from '../../utils/routes/routePaths';
 import { setUser } from '../../services/currentUserSlice';
 import { useNavigate } from 'react-router-dom';
 import { useEffect} from 'react';
-import Layout from '../../components/layout/layout';
 import { IoArrowBackCircleOutline, IoArrowForwardCircleOutline, IoNotifications } from 'react-icons/io5';
 import { RiShieldKeyholeFill } from 'react-icons/ri';
 import { FaCircleExclamation } from 'react-icons/fa6';
@@ -20,11 +19,7 @@ import MakePayment from '../../components/modals/dashboardModals/PaymentProcess'
 
 
 
-
-
-
-
-const DashboardPage = () => {
+const Dashboard = () => {
 const ongoingTransaction =[
   {
     icon: <RiShieldKeyholeFill size="1.5rem" />,
@@ -82,7 +77,6 @@ const VendorLists =[
     rating: "4.5"
   },
  
- 
 ]
 
   const user = useSelector((state: RootState) => state.user.user);
@@ -97,18 +91,18 @@ const VendorLists =[
       dispatch(setUser(data)); // Update user data in the Redux store upon successful query
     } else if (isError && error) {
       navigate(RoutePaths.LOGIN)
-      }
+    }
       
   },[isSuccess, data, isError, error, dispatch,navigate]);
 
 
   return (
-    <Layout>
+    <>
       <MakePayment isOpen={isOpen} onClose={onClose}/>
       <Box bgColor="#F0F0F0" minH="100vh" w="100%">
         <Stack pt={10} direction={{base:"column",md:"column",lg:"row"}} gap={{base:"10",md:"20",lg:"5"}} justifyContent={{base:"",md:"center",lg:"space-evenly"}}>
           <Box display={{base:"flex",md:"flex", lg:"unset"}}  justifyContent={{base:"center",md:"center",lg:"unset"}}>
-            <Box  >
+            <Box>
               <HStack pos="relative" spacing={14} justifyContent={{base:"space-between",md:"space-between",lg:"space-between"}}>
                 <HStack gap={{base:"4",md:"5",lg:"4"}}>
                   <Avatar name={user?.full_name}/>
@@ -189,10 +183,10 @@ const VendorLists =[
           </Box>
         </Stack>
       </Box>  
-    </Layout>
+    </>
  
    
   )
 }
 
-export default DashboardPage
+export default Dashboard

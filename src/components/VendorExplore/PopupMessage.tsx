@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Button,Stack, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter,Flex, ModalBody, ModalCloseButton, Text } from "@chakra-ui/react";
 
-const PopupMessage: React.FC<{ message: string }> = ({ message }) => {
+const PopupMessage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {

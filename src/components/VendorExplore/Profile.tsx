@@ -9,8 +9,6 @@ function Profile() {
         
             <img src={img} alt='' width={100} />
 
-            
-
             <Stack spacing={2}>
                 <Text fontSize={25}>Ramon Hassani</Text>
                 <Flex gap={7} color='blue'>

@@ -11,17 +11,14 @@ import {
   FormLabel,
   InputGroup,
   InputRightElement,
-  Button,
-  Switch,
   Icon,
   Select,
-  VStack,
   useToast,
+  Link,
+  Switch,
 } from "@chakra-ui/react";
-import LineImage from "../../assets/icons/Line 10.png";
+
 import HeroImage from "../../components/HeroImage/HeroImage";
-import AppleLogin from "../../components/LoginComponents/AppleLogin";
-import GoogleLogin from "../../components/LoginComponents/GoogleLogin";
 import LogoImage from "../../components/LogoImage/LogoImage";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
@@ -78,7 +75,6 @@ function SignupPage() {
     
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {agree, ...formData} = data
-
     //sent data
     signUp(formData)
   
@@ -106,7 +102,7 @@ function SignupPage() {
       } catch (error) {
         // If there's an error while handling server errors, display a connection error toast
         toast({
-          title: "Connection Error",
+          title: "Server not responding now",
           position: "top-right",
           status: "error",
           isClosable: true,
@@ -152,29 +148,6 @@ function SignupPage() {
           >
             Sign up to get started.
           </Text>
-
-          {/* Third Party authentication */}
-          <VStack gap={4} pt={2}>
-            <GoogleLogin />
-            <AppleLogin />
-          </VStack>
-
-          {/* Line */}
-          <Flex
-            align="center"
-            justify="center"
-            w="100%"
-            pt={4}
-            fontSize={["2xl", "lg", "sm"]}
-          >
-            <Box>
-              <Image src={LineImage} alt="line" />
-            </Box>
-            <Text p={1}>OR</Text>
-            <Box>
-              <Image src={LineImage} alt="line" />
-            </Box>
-          </Flex>
 
           {/* Sign Up form */}
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -304,21 +277,21 @@ function SignupPage() {
             {errors.email && (
               <Text color="red.500" pt={2} fontSize={{base:"12px",md:"14px",lg:"16px"}}>{errors.agree?.message}</Text>
             )}
-            <Button
+            <Box
+              as= "button"
               type="submit"
               px={["", "", "35"]}
               mt={5}
+              p={4}
               width={{base:"100%",md:"95%",lg:"95%"}}
-              size="lg"
               bg="brand.primary"
               borderRadius={50}
               color="white"
-              
             >
              {isLoading ? "Registering...":" Sign up Free"}
-            </Button>
+            </Box>
             <Text m={3} textAlign="center">
-              Already have an account? Log in
+              Already have an account? <Link href={RoutePaths.LOGIN} style={{textDecoration: "none"}}>Log in</Link> 
             </Text>
           </form>
         </Box>

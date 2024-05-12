@@ -4,12 +4,12 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {UserSignUp,UserOut, ResponseData, Login, ForgotPassword, SetPassword, RefreshToken, PaymentMadeOut} from  './index'
 import { PaymentData } from '../components/modals/dashboardModals/PaymentProcess';
 
+const url = import.meta.env.VITE_PROD_ENV === 'true' ? import.meta.env.VITE_SERVER_HOST : import.meta.env.VITE_DEV_SERVER_HOST;
 
 export const VenduitApi = createApi({
   reducerPath: 'VenduitApi',
   baseQuery: fetchBaseQuery({ 
-    baseUrl:
-    "http://127.0.0.1:8000",
+    baseUrl: url,
     prepareHeaders: (headers) => {
       // Get the token from localStorage
       const token = localStorage.getItem('access_token');
