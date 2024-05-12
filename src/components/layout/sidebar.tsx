@@ -13,8 +13,9 @@ import { MdDashboard, MdOutlineInsertChartOutlined } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../../services/currentUserSlice";
 import { logoutSuccess } from "../../services/authSlice";
-import { RoutePaths } from "../VendorExplore/routePaths";
+
 import LandingHeader from "../LandingComponents/landingHeader";
+import { RoutePaths } from "../../utils/routes/routePaths";
 
 export default function SideBar() {
   const dispatch = useDispatch();
@@ -44,12 +45,12 @@ export default function SideBar() {
               </HStack>
             </Box>
           </Link>
-          <Link href="/explore" style={{ textDecoration: 'none' }}>
+          <Link href="/vendor_explore" style={{ textDecoration: 'none' }}>
             <Box mt={4} 
              p="12px"
              pl="10%"
             >
-              <HStack color={router.pathname === RoutePaths.EXPLORE ? "#5D2FE0": "#A2A1A5"}>
+              <HStack color={router.pathname === RoutePaths.VENDOR_EXPLORE ? "#5D2FE0": "#A2A1A5"}>
                 <FaRegListAlt size="1.4rem"/>
                 <Text fontSize={{base:"",md:"", lg:"16px"}} fontWeight="semibold" > Vendor Explore </Text>
               </HStack>

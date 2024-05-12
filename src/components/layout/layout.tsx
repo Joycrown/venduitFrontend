@@ -4,8 +4,6 @@ import { ReactNode, useEffect } from "react";
 import { Box, Center,Link, Drawer, DrawerCloseButton, DrawerContent, DrawerOverlay, HStack, Spinner, Text, useDisclosure, Stack, useToast } from "@chakra-ui/react";
 import SideBar from "./sidebar";
 import DashboardHeaderMobile from "./dashboardHeaderMobile";
-// import { IoCreateOutline, IoPerson } from "react-icons/io5";
-
 import { useLocation} from "react-router-dom";
 import { IoMdPerson} from "react-icons/io";
 import { FaRegListAlt, FaTelegramPlane } from "react-icons/fa";
@@ -14,8 +12,8 @@ import { useDispatch } from "react-redux";
 import { useCurrentUserQuery, useRefreshTokenMutation } from "../../services/api";
 import { loginSuccess, logoutSuccess } from "../../services/authSlice";
 import { removeUser, setUser } from "../../services/currentUserSlice";
-import { RoutePaths } from "../VendorExplore/routePaths";
 import { IoLogOutSharp } from "react-icons/io5";
+import { RoutePaths } from "../../utils/routes/routePaths";
 
 
 interface LayoutProps {
@@ -206,7 +204,7 @@ const Layout = ({ children }: LayoutProps) => {
                     p="12px"
                     pl="10%">
                   <HStack 
-                  color={router.pathname === RoutePaths.ACCOUNT ? 
+                  color={router.pathname === RoutePaths.ACCOUNT? 
                     "#5D2FE0": "#A2A1A5"}
                   >
                     <IoMdPerson size="1.5rem"/>

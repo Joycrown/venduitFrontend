@@ -15,6 +15,9 @@ export const RoutePaths = Object.freeze({
   VENDOR_REPUTATION: "/vendor_reputation",
   VENDOR_RESULTS: "/vendor_results",
   CATEGORY_LIST: "/category_list",
+  ACCOUNT:"/account",
+  TRANSACTION:"/transaction",
+  PROMOTION:"/promotion"
  
   
 });
