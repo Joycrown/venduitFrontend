@@ -4,23 +4,20 @@ import {
   Box,
   Text,
   Flex,
-  Image,
   Input,
   Heading,
   FormControl,
   FormLabel,
   InputGroup,
   InputRightElement,
-  Button,
   Switch,
   Icon,
-  VStack,
   useToast,
+  Link,
+  Center,
 } from "@chakra-ui/react";
-import LineImage from "../../assets/icons/Line 10.png";
+
 import HeroImage from "../../components/HeroImage/HeroImage";
-import AppleLogin from "../../components/LoginComponents/AppleLogin";
-import GoogleLogin from "../../components/LoginComponents/GoogleLogin";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -30,7 +27,7 @@ import { useLoginMutation } from "../../services/api";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../services/authSlice";
 import { useNavigate } from "react-router-dom";
-import { RoutePaths } from "../../utils/routes/routePaths";
+import { RoutePaths } from "../../components/VendorExplore/routePaths";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -43,7 +40,7 @@ export default function LoginPage() {
       password: yup
         .string()
         .required("Password is required")
-        .min(8, "Use at least 8 characters"),
+        
         // remeber: yup.bool().oneOf([true], "You must agree to continue"),
     })
     .required();
@@ -128,13 +125,13 @@ export default function LoginPage() {
           </Heading>
 
           {/* Third Party authentication */}
-          <VStack gap={4} py={2}>
+          {/* <VStack gap={4} py={2}>
             <GoogleLogin />
             <AppleLogin />
-          </VStack>
+          </VStack> */}
 
           {/* Line */}
-          <Flex
+          {/* <Flex
             align="center"
             justify="center"
             w="100%"
@@ -148,7 +145,7 @@ export default function LoginPage() {
             <Box>
               <Image src={LineImage} alt="line" />
             </Box>
-          </Flex>
+          </Flex> */}
 
           {/* Sign Up form */}
 
@@ -173,15 +170,15 @@ export default function LoginPage() {
               <FormLabel fontSize={{base:"14px",md:"16px",lg:""}}>Password</FormLabel>
               <InputGroup size="md">
                 <Input
-                type={showPassword ? "text" : "password"}
-                  pr="4.5rem"
+                  type={showPassword ? "text" : "password"}
+                  // pr="4rem"
                   placeholder="Enter password"
                   size="lg"
                   width={{base:"100%",md:"95%",lg:"95%"}}
                   fontSize={{base:"14px",md:"16px",lg:""}}
                   {...register("password")}
                 />
-                <InputRightElement width="4.5rem">
+                <InputRightElement width="8.5rem">
                   <Box onClick={() => setShowPassword(!showPassword)}>
                     <Icon as={showPassword ? FaEye : FaEyeSlash} />
                   </Box>
@@ -204,37 +201,40 @@ export default function LoginPage() {
                 Remember me on this device
               </FormLabel>
             </FormControl>
-            <Button
-            type="submit"
+            <Box
+              as="button"
+              type="submit"
+              p={4}
               px={["", "", "35"]}
               mt={5}
               width={{base:"100%",md:"95%",lg:"95%"}}
-              size="lg"
               bg="brand.primary"
               borderRadius={50}
               color="white"
-             
             >
               {isLoading ? "Signing in...":" Sign In"}
-            </Button>
+            </Box>
 
             {/* Forget Password */}
-            <Button
-              variant="outline"
-              type="submit"
-              px={["", "", "35"]}
-              mt={5}
-              width={{base:"100%",md:"95%",lg:"95%"}}
-              size="lg"
-              border="1px"
-              borderRadius={50}
-              
-            >
-              Forget password?{" "}
-            </Button>
-            <Text m={3} textAlign="center">
-              New to Venduit? Sign up
-            </Text>
+            <Link href={RoutePaths.FORGOT_PASSWORD} style={{textDecoration: "none"}}>
+              <Box
+                p={4}
+                px={["", "", "35"]}
+                mt={5}
+                width={{base:"100%",md:"95%",lg:"95%"}}
+                border="1px"
+                borderRadius={50}
+                textAlign="center"
+              >
+                Forget password?{" "}
+              </Box>
+            
+            </Link>
+            <Center>
+              <Box  m={3} textAlign="center">
+                New to Venduit? <Link href="/signup" style={{textDecoration: "none"}}>Sign up</Link>
+              </Box>
+            </Center>
           </form>
         </Box>
       </Flex>

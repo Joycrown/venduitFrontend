@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-refresh/only-export-components */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {UserSignUp,UserOut, ResponseData, Login, ForgotPassword, SetPassword, RefreshToken} from  './index'
+import {UserSignUp,UserOut, ResponseData, Login, ForgotPassword, SetPassword, RefreshToken, PaymentMadeOut} from  './index'
+import { PaymentData } from '../components/modals/dashboardModals/PaymentProcess';
+
+const url = import.meta.env.VITE_PROD_ENV === 'true' ? import.meta.env.VITE_SERVER_HOST : import.meta.env.VITE_DEV_SERVER_HOST;
 
 export const VenduitApi = createApi({
   reducerPath: 'VenduitApi',
   baseQuery: fetchBaseQuery({ 
-    baseUrl:
-    "https://venduit-yxgrv9rp.b4a.run/",
+    baseUrl: url,
     prepareHeaders: (headers) => {
       // Get the token from localStorage
       const token = localStorage.getItem('access_token');
@@ -64,6 +66,34 @@ export const VenduitApi = createApi({
     currentUser: builder.query<UserOut, void>({
       query: () => "/current_user"
     }),
+    getVendor: builder.query<UserOut, string>({
+      query: (id) => `/vendor/${id}`
+    }),
+    makePayment: builder.mutation<PaymentMadeOut, PaymentData>({
+      query: (paymentData: PaymentData) => {
+        const formData = new FormData();
+        formData.append('vendor_id', paymentData.vendor_id);
+        formData.append('product_name', paymentData.product_name);
+        formData.append('product_desc', paymentData.product_desc);
+        formData.append('amount', paymentData.amount);
+        // Append product images if available
+        if (paymentData.product_images) {
+          for (const image of paymentData.product_images) {
+            // Ensure 'image' is a Blob object before appending
+            if (image instanceof Blob) {
+              formData.append('product_images', image, image.name);
+            } else {
+              console.error('Invalid file format:', image);
+            }
+          }
+        }
+        return {
+          url: '/create_order',
+          method: 'POST',
+          body: formData,
+        };
+      },
+    }),
     
     
     
@@ -76,7 +106,9 @@ export const { useUserSignupMutation,
   useForgotpasswordMutation,
   useSetpasswordMutation,
   useRefreshTokenMutation,
-  useCurrentUserQuery
+  useCurrentUserQuery,
+  useGetVendorQuery,
+  useMakePaymentMutation
 
 
 
