@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {OrderOut} from "./index"
+import { OrderItemOut } from '.';
+
 
 
 // Define initial state
 interface OrderState {
-  order: OrderOut | null; // Update the type to use the User interface
+  order: OrderItemOut | null; // Update the type to use the User interface
   loading: boolean;
   error: string | null;
 }
@@ -21,7 +22,7 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     // Action to set user data
-    setOrder: (state, action: PayloadAction<OrderOut | null>) => {
+    setOrder: (state, action: PayloadAction<OrderItemOut | null>) => {
       state.order = action.payload;
       state.loading = false;
       state.error = null;
