@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useRef } from "react";
 import { Stack, Text, Flex, IconButton, Image } from "@chakra-ui/react";
 import {
   FaRegArrowAltCircleRight,

@@ -28,7 +28,7 @@ function VendorReputaion() {
           </Stack>
         </Flex>
 
-        <PopupMessage message={""} />
+        <PopupMessage />
       </Stack>
     </Layout>
   );

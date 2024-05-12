@@ -1,4 +1,4 @@
-import { Stack, Flex } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import VendorSearch from "../VendoreSearch";
 import TopCat from "../TopCat";
 import Recommed from "../Recommed";

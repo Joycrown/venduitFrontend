@@ -5,7 +5,7 @@ import { skipToken } from '@reduxjs/toolkit/query';
 import { useEffect } from 'react';
 
 
-const VendorDetailsCard = (getVendorID) => {
+const VendorDetailsCard = (getVendorID:any) => {
   const { data, error, isError } = useGetVendorQuery(getVendorID || skipToken)
   const toast = useToast()
   useEffect(() => {

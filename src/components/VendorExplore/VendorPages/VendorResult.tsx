@@ -1,5 +1,4 @@
 import { Stack, Flex, Text, Button } from "@chakra-ui/react";
-import VendorNav from "../VendorNav";
 import VendorSearch from "../VendoreSearch";
 import VendorCard from "../Card";
 import Filter1 from "../Filter1";
@@ -26,7 +25,7 @@ function VendorResult() {
           <Stack spacing={6}>
             <Flex justifyContent="space-between" flexWrap="wrap" gap={10}>
               {[...Array(8)].map((_, index) => (
-                <VendorCard key={index} w="20%" maxW="200px" />
+                <VendorCard key={index}/>
               ))}
             </Flex>
 

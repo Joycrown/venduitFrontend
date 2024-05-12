@@ -29,7 +29,8 @@ import check from "../../assets/icons/check_circle_black_24dp 1.svg";
 import LandingHeader from "../../components/LandingComponents/landingHeader";
 import { useUserSignupMutation } from "../../services/api";
 import { useNavigate } from "react-router-dom";
-import { RoutePaths } from "../../components/VendorExplore/routePaths";
+import { RoutePaths } from "../../utils/routes/routePaths";
+
 
 
 

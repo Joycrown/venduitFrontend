@@ -2,7 +2,6 @@ import {Avatar, Box, HStack, Link, Stack, Text, useDisclosure } from '@chakra-ui
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../services/store';
 import { useCurrentUserQuery } from '../../services/api';
-import { RoutePaths } from '../../components/VendorExplore/routePaths';
 import { setUser } from '../../services/currentUserSlice';
 import { useNavigate } from 'react-router-dom';
 import { useEffect} from 'react';
@@ -14,6 +13,7 @@ import VendorCard from '../../components/utils/VendorCard';
 import clothe from "../../assets/images/vendor clothe image.jpg"
 import shoe from "../../assets/images/vendor shoe image.jpg"
 import MakePayment from '../../components/modals/dashboardModals/PaymentProcess';
+import { RoutePaths } from '../../utils/routes/routePaths';
 
 
 
