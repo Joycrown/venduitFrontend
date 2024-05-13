@@ -79,7 +79,7 @@ function SignupPage() {
     //sent data
     signUp(formData)
   
-    reset();
+    
   };
 
   useEffect(() => {
@@ -91,6 +91,7 @@ function SignupPage() {
         isClosable: true,
       });
       navigate(RoutePaths.LOGIN)
+      reset()
     } else if (isError) {
       try {
         // Attempt to handle server errors
