@@ -25,7 +25,7 @@ function VendorResult() {
           <Stack spacing={6}>
             <Flex justifyContent="space-between" flexWrap="wrap" gap={10}>
               {[...Array(8)].map((_, index) => (
-                <VendorCard key={index}/>
+                <VendorCard key={index} />
               ))}
             </Flex>
 

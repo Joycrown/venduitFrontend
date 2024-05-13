@@ -100,8 +100,8 @@ const VendorLists =[
     <>
       <MakePayment isOpen={isOpen} onClose={onClose}/>
       <Box bgColor="#F0F0F0" minH="100vh" w="100%">
-        <Stack pt={10} direction={{base:"column",md:"column",lg:"row"}} gap={{base:"10",md:"20",lg:"5"}} justifyContent={{base:"",md:"center",lg:"space-evenly"}}>
-          <Box display={{base:"flex",md:"flex", lg:"unset"}}  justifyContent={{base:"center",md:"center",lg:"unset"}}>
+        <Stack pt={10} direction={{base:"column",md:"column",lg:"row"}} gap={{base:"10",md:"20",lg:"20"}} justifyContent={{base:"",md:"center",lg:"space-around"}}px="2%">
+          <Box display={{base:"flex",md:"flex", lg:"unset"}} width={{base:"unset",lg:"50%"}} justifyContent={{base:"center",md:"center",lg:"unset"}}>
             <Box>
               <HStack pos="relative" spacing={14} justifyContent={{base:"space-between",md:"space-between",lg:"space-between"}}>
                 <HStack gap={{base:"4",md:"5",lg:"4"}}>
@@ -114,14 +114,14 @@ const VendorLists =[
                 <IoNotifications size="1.5rem"/>
               </HStack>
               <Stack direction={{base:"column",md:"row",lg:"row"}} gap={{base:5,md:24,lg:5}} pt={{base:8,md:7,lg:5}} justifyContent={{base:"",md:"unset",lg:"unset"}}>
-                <Box p={{base:"3",md:"4",lg:"2"}} cursor="pointer" onClick={onOpen} borderRadius="6px" shadow="0 4px 6px rgba(0, 0, 0, 0.4)" justifyContent="center" display="flex"  minW={{base:"",md:"250px",lg:"100px"}} bgColor="#565559" color="#fff">
+                <Box p={{base:"3",md:"4",lg:"2"}} cursor="pointer" onClick={onOpen} borderRadius="6px" shadow="0 4px 6px rgba(0, 0, 0, 0.4)" justifyContent="center" display="flex"  minW={{base:"",md:"250px",lg:"150px"}} bgColor="#565559" color="#fff">
                   <Text fontSize={{base:"",md:"18px",lg:"14px"}}> Make a Payment</Text>
                 </Box>
-                <Link href="/explore" p={{base:"3",md:"4",lg:"2"}} style={{ textDecoration: 'none' }}  borderRadius="6px" shadow="0 4px 6px rgba(0, 0, 0, 0.4)" justifyContent="center" display="flex" minW={{base:"",md:"250px",lg:"100px"}} bgColor="#5D2FE0" color="#fff">
+                <Link href="/explore" p={{base:"3",md:"4",lg:"2"}} style={{ textDecoration: 'none' }}  borderRadius="6px" shadow="0 4px 6px rgba(0, 0, 0, 0.4)" justifyContent="center" display="flex" minW={{base:"",md:"250px",lg:"150px"}} bgColor="#5D2FE0" color="#fff">
                   <Text fontSize={{base:"",md:"18px",lg:"14px"}}> Explore Vendors</Text>
                 </Link>
               </Stack>
-              <Stack p={3} mt={6} gap={{base:"70px",md:"150px",lg:"70px"}} bgColor="#182333" borderRadius="10px" width={{base:"",md:"500px",lg:"250px"}}>
+              <Stack p={3} mt={6} gap={{base:"70px",md:"150px",lg:"70px"}} bgColor="#182333" borderRadius="10px" maxW={{base:"",md:"500px",lg:"350px"}}>
                 <HStack color="#fff" justifyContent="left">
                   <RiShieldKeyholeFill size="1.2rem" />
                   <Text fontSize={{base:"",md:"20px",lg:"16px"}} fontWeight="semibold" > Escrow Wallet</Text>
@@ -148,8 +148,8 @@ const VendorLists =[
               </Box>
             </Box>
           </Box>
-          <Box display={{base:"flex",md:"flex", lg:"unset"}}  justifyContent={{base:"center",md:"center",lg:"unset"}}  >
-           <Box bgColor="#fff" p={5} borderRadius="10px" w={{base:"80%",md:"90%",lg:"550px"}}>
+          <Box display={{base:"flex",md:"flex", lg:"unset"}}  width={{base:"unset",lg:"50%"}}  justifyContent={{base:"center",md:"center",lg:"unset"}}  >
+           <Box bgColor="#fff" p={5} borderRadius="10px" w={{base:"80%",md:"90%",lg:"100%"}}>
               <HStack justifyContent="space-between">
                 <Text fontSize={{base:"",md:"22px",lg:"20px"}} fontWeight="semibold">Zero-Dispute vendors</Text>
                 <HStack>

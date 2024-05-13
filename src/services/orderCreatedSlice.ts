@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {OrderItemOut} from "./index"
+import { OrderItemOut } from '.';
+
 
 
 // Define initial state

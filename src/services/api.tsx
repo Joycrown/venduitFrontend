@@ -19,7 +19,7 @@ export const VenduitApi = createApi({
       }
       return headers;
     }
-  }), // Replace '/api' with your actual API base URL
+  }), 
     
     endpoints: (builder) => ({
     userSignup: builder.mutation<UserSignUp, void>({
